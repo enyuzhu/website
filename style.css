@@ -17,6 +17,7 @@
 
     --text-color: var(--navy);
     --text-muted: #674635;
+    --label-muted: rgba(103, 70, 53, 0.5);
     --border-soft: rgba(19, 39, 63, 0.14);
     --shell: 110rem;
     --grid-line: #cfcfcf;
@@ -89,12 +90,6 @@ button:focus-visible{
     width: 100%;
     margin: 0 auto;
     padding: 2rem 2.4rem;
-}
-
-/* ---------- footer ---------- */
-.footer{
-    width: 100%;
-    padding: 0 3.2rem 3.2rem;
 }
 
 .hero-copy{
@@ -189,6 +184,7 @@ button:focus-visible{
     background: var(--cocoa);
     cursor: pointer;
     border-left: 0.3rem solid var(--card-edge);
+    border-bottom: 0.3rem solid var(--card-edge);
     transform: rotate(var(--rot, 0deg));
     transform-origin: 50% 100%;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -199,6 +195,9 @@ button:focus-visible{
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+.card-slot:nth-child(5) .card img{
+    object-position: 64% 50%;
 }
 
 .card-slot.idle .card{
@@ -296,10 +295,19 @@ button:focus-visible{
     color: var(--red);
 }
 
-/* ---------- socials ---------- */
+/* ---------- socials (fixed, persists across scroll on every page) ---------- */
 .socials{
+    position: fixed;
+    left: 2.2rem;
+    bottom: 2.2rem;
     display: flex;
-    gap: 2.2rem;
+    gap: 2rem;
+    padding: 0.9rem 1.6rem;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    border-radius: 999px;
+    box-shadow: 0 0.4rem 1.4rem rgba(19, 39, 63, 0.1);
+    z-index: 50;
 }
 .socials a{
     font-size: 1.4rem;
@@ -309,6 +317,28 @@ button:focus-visible{
 }
 .socials a:hover{
     color: var(--text-color);
+}
+
+/* ---------- about page ---------- */
+main.about-content{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    max-width: 90rem;
+}
+.about-photo{
+    flex: 0 0 auto;
+}
+.about-photo img{
+    display: block;
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.about-text{
+    flex: 1;
+    min-width: 0;
 }
 
 /* ---------- generic content pages (about / project) ---------- */
@@ -352,6 +382,141 @@ button:focus-visible{
     height: 100%;
     object-fit: cover;
 }
+
+/* ---------- project detail page ---------- */
+.project-page{
+    flex: 1;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 5rem 4rem 8rem;
+    width: 100%;
+}
+.project-hero{
+    display: flex;
+    align-items: flex-start;
+    gap: 5rem;
+}
+.project-media{
+    flex: 0 0 auto;
+}
+.project-media img{
+    display: block;
+    height: 62rem;
+    width: auto;
+    max-width: 48rem;
+    object-fit: contain;
+    object-position: top;
+}
+.project-info{
+    flex: 1;
+    min-width: 0;
+}
+.project-tag{
+    display: block;
+    font-size: 1.6rem;
+    color: var(--text-muted);
+    margin-bottom: 1.8rem;
+}
+.project-info h1{
+    font-size: 3.8rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 3.2rem;
+}
+.project-field{
+    margin-bottom: 2.6rem;
+}
+.project-field:last-child{
+    margin-bottom: 0;
+}
+.field-label{
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--label-muted);
+    margin-bottom: 0.7rem;
+}
+.project-field p{
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+.see-more{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    width: fit-content;
+    margin: 7rem auto 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    transition: color 0.25s ease;
+}
+.see-more:hover{
+    color: var(--text-color);
+}
+.see-more svg{
+    width: 1.6rem;
+    height: 1.6rem;
+    stroke: currentColor;
+}
+
+.case-study{
+    max-width: 94rem;
+    margin: 6rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+.case-block:not(.case-block-media){
+    max-width: 72rem;
+    margin: 0 auto;
+    width: 100%;
+}
+.case-block-media{
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+}
+.case-media{
+    flex: 1;
+    min-width: 0;
+}
+.case-media img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 1.2rem;
+}
+.case-text{
+    flex: 1;
+    min-width: 0;
+    max-width: 48rem;
+}
+.case-block h2{
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+.case-block p{
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: var(--text-color);
+}
+.case-study .back-link{
+    margin-top: 1rem;
+}
+
 .back-link{
     display: inline-block;
     margin-top: 1rem;
@@ -415,6 +580,41 @@ button:focus-visible{
     }
     .category-design{
         text-align: left;
+    }
+    .socials{
+        left: 2rem;
+        bottom: 2rem;
+    }
+    .about-content{
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-text{
+        text-align: left;
+    }
+    .about-photo img{
+        width: 16rem;
+        height: 16rem;
+    }
+    .project-hero{
+        flex-direction: column;
+    }
+    .project-media{
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 28rem;
+        margin: 0 auto;
+    }
+    .project-media img{
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+    }
+    .project-info h1{
+        font-size: 2.8rem;
+    }
+    .case-block-media{
+        flex-direction: column;
     }
 }
 

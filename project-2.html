@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-    <title>PROSPER — Enyu Zhu</title>
+    <title>PROSPER | Enyu Zhu</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -18,13 +18,62 @@
             </nav>
         </header>
 
-        <main class="content">
-            <span class="tag">Machine Learning</span>
-            <h1>PROSPER</h1>
-            <p>Case study coming soon — images, write-up, and metrics will go here.</p>
-            <div class="placeholder-block"><img src="Assets/projects/project-2.jpg" alt="PROSPER" loading="lazy" onerror="this.remove()"></div>
-            <a class="back-link" href="index.html">&larr; Back to home</a>
+        <main class="project-page">
+            <div class="project-hero">
+                <div class="project-media">
+                    <img src="Assets/projects/project-2.jpg" alt="PROSPER" loading="lazy" onerror="this.remove()">
+                </div>
+                <div class="project-info">
+                    <span class="project-tag">Machine Learning</span>
+                    <h1>PROSPER</h1>
+
+                    <div class="project-field">
+                        <span class="field-label">Overview</span>
+                        <p>Predictive Modeling, Explainable AI Architecture<br>National University of Singapore Urban Analytics Lab<br>2025</p>
+                    </div>
+
+                    <div class="project-field">
+                        <span class="field-label">Role</span>
+                        <p>Data Analytics Researcher</p>
+                    </div>
+
+                    <div class="project-field">
+                        <span class="field-label">Info</span>
+                        <p>Choosing a location for a restaurant is one of the biggest decisions a small operator makes, but professional site selection consulting in Singapore runs about $150 to $400 an hour. I built PROSPER, a model that predicts a restaurant's success using only information you'd know before opening, like location, cuisine, price, and hours, trained on a corpus of 1,000 Singapore restaurants and over 565,000 real Google reviews. It runs LightGBM for fast real time results and beats naive baselines by 10x, and every prediction comes with SHAP explanations plus real comparable restaurants pulled in through retrieval. PROSPER runs for about a cent per query, giving small operators the kind of location intelligence that used to be reserved for big chains.</p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#case-study" class="see-more">
+                <span>See more</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+            </a>
+
+            <section class="case-study" id="case-study">
+                <div class="case-block">
+                    <h2>Challenge</h2>
+                    <p>Choosing a viable location is one of the most consequential and least accessible decisions a small food and beverage operator makes. Professional site selection consulting in Singapore typically costs SGD 150 to 400 per hour, placing it beyond the reach of many elderly hawker stall operators, whose UNESCO-recognized culinary heritage faces increasing economic pressure. Existing quantitative location methods rely on proprietary mobility data and statistical expertise unavailable to individual operators. Emerging LLM-based location tools generate advice from internal knowledge without validated predictors, a failure mode known as geo-hallucination.</p>
+                </div>
+                <div class="case-block">
+                    <h2>Approach</h2>
+                    <p>I built PROSPER, short for PRe-Opening Success Prediction with Explainable Retrieval, a framework that predicts restaurant success using only information available before opening: location, cuisine, price, hours, service options, amenities, and zone context. It combines public Singapore Urban Redevelopment Authority zoning records with a corpus of 1,000 restaurants and 565,689 Google reviews, selected for having complete Google Business Profile data, to construct a Bayesian success label.</p>
+                </div>
+                <div class="case-block">
+                    <h2>Solution</h2>
+                    <p>PROSPER trains two predictors on this label. TabPFN is a tabular foundation model that achieves the lowest error of any model evaluated, while LightGBM is deployed for real-time inference. Both substantially outperform two LLM baselines that reason from restaurant attributes with and without retrieved evidence. Each restaurant is embedded with all-MiniLM-L6-v2, and every prediction is attributed with SHAP. Its top features guide a similarity search over these embeddings to surface the most comparable successful and unsuccessful restaurants, whose attributes and reviews are assembled into template-based natural-language narration.</p>
+                </div>
+                <div class="case-block">
+                    <h2>Outcome</h2>
+                    <p>The complete framework is deployable at approximately SGD 0.01 per query with high accuracy, interpretability, and accessibility, giving small operators the kind of location intelligence that used to be reserved for well-resourced chains.</p>
+                </div>
+                <a class="back-link" href="index.html">&larr; Back to home</a>
+            </section>
         </main>
+
+        <footer class="socials">
+            <a href="https://github.com/enyuzhu" target="_blank" rel="noopener noreferrer">Github</a>
+            <a href="https://www.linkedin.com/in/amyenyuzhu" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        </footer>
     </div>
 
     <script src="script.js"></script>

@@ -62,3 +62,16 @@
         });
     }
 })();
+
+(function () {
+    document.querySelectorAll('.see-more').forEach((toggle) => {
+        const targetId = (toggle.getAttribute('href') || '').slice(1);
+        const target = targetId ? document.getElementById(targetId) : null;
+        if (!target) return;
+
+        toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+})();
