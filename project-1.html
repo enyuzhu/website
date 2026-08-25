@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#ffffff">
-    <title>Meet Travelers Version 3 | Enyu Zhu</title>
+    <title>Meet Travellers Version 3 | Enyu Zhu</title>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,15 +21,15 @@
         <main class="project-page">
             <div class="project-hero">
                 <div class="project-media">
-                    <img src="Assets/projects/project-1.jpg" alt="Meet Travelers Version 3" loading="lazy" onerror="this.remove()">
+                    <img src="Assets/projects/project-1.jpg" alt="Meet Travellers Version 3" loading="lazy" onerror="this.remove()">
                 </div>
                 <div class="project-info">
                     <span class="project-tag">Machine Learning</span>
-                    <h1>Meet Travelers Version 3</h1>
+                    <h1>Meet Travellers Version 3</h1>
 
                     <div class="project-field">
                         <span class="field-label">Overview</span>
-                        <p>Recommendation+Ranking Architecture<br>Hostelworld<br>2026</p>
+                        <p>Recommendation + Ranking Architecture<br>Hostelworld<br>2026</p>
                     </div>
 
                     <div class="project-field">
@@ -39,7 +39,7 @@
 
                     <div class="project-field">
                         <span class="field-label">Info</span>
-                        <p>Hostelworld is the leading online travel booking platform specialized in hostels and budget-friendly accommodations around the world and connecting solo travelers. The previous Meet Travelers Version 2 feature helps recommends travelers to users based on standard cosine similarity search on background information. I expanded the recommendation system by incorporating image embeddings and personality-based signals, capturing behavioral characteristics such as extraversion alongside visual preferences and aesthetics. This work explored how visual and personality signals can better understand traveler compatibility to surface more relevant social connections and improved Hit@5 for direct messages by 53%.</p>
+                        <p>Hostelworld is the leading online travel booking platform specialized in hostels and budget-friendly accommodations around the world and connecting solo travellers. The previous Meet Travellers Version 2 feature helps recommends travellers to users based on standard cosine similarity search on background information. I expanded the recommendation system by incorporating image embeddings and personality-based signals, capturing behavioral characteristics such as extraversion alongside visual preferences and aesthetics. This work explored how visual and personality signals can better understand traveller compatibility to surface more relevant social connections and improved Hit@5 for direct messages by 57%.</p>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class="case-block case-block-media">
                     <div class="case-text">
                         <h2>Challenge</h2>
-                        <p>Meet Travelers Version 2 recommended travelers using standard cosine similarity search on background information alone. This approach missed the visual and personality-based signals that shape real compatibility between travelers.</p>
+                        <p>Meet Travellers Version 2 recommended travellers using standard cosine similarity search on background information alone. This approach missed the visual and personality-based signals that shape real compatibility between travellers, with a 13% accuracy at Hit@5 for direct messages.</p>
                     </div>
                     <div class="case-media">
                         <img src="Assets/projects/project-1-challenge.jpg" alt="" loading="lazy" onerror="this.closest('.case-media').remove()">
@@ -61,7 +61,7 @@
                 </div>
                 <div class="case-block">
                     <h2>Approach</h2>
-                    <p>I expanded the recommendation system by incorporating image embeddings alongside personality-based signals, capturing behavioral characteristics like extraversion in addition to visual preferences and aesthetics. The model was trained on approximately 600K direct messages and evaluated on a held-out set of approximately 150K messages.</p>
+                    <p>I expanded the recommendation system by incorporating image embeddings alongside personality-based signals, capturing behavioral characteristics like extraversion in addition to visual preferences and aesthetics. Specific words related to gender and lifestyle revealed a strong effect size. The model was trained on approximately 600K direct messages and evaluated on a held-out set of approximately 150K messages.</p>
                 </div>
                 <div class="case-block case-block-media">
                     <div class="case-media">
@@ -69,12 +69,12 @@
                     </div>
                     <div class="case-text">
                         <h2>Solution</h2>
-                        <p>The result is a hybrid recommendation architecture that blends visual and personality signals to better model traveler compatibility, surfacing more relevant social connections between travelers.</p>
+                        <p>The result is a two-tower recommendation architecture that matches visual and personality signals between a sender and a receiver to better model traveller compatibility. The architecture integrates MongoDB vector search to enable real-time candidate retrieval, surfacing relevant matches immediately when users open the app.</p>
                     </div>
                 </div>
                 <div class="case-block">
                     <h2>Outcome</h2>
-                    <p>Improved Hit@5 for direct messages by 53%.</p>
+                    <p>This implemented improved direct messages with improvements of Hit@5 by 57% and Hit@10 by 60%. The architecture is also designed to enable Meet Travellers Version 4 to improve responsiveness and meaningful conversation signals.</p>
                 </div>
                 <a class="back-link" href="index.html">&larr; Back to home</a>
             </section>

@@ -476,8 +476,7 @@ main.about-content{
     gap: 4rem;
 }
 .case-block:not(.case-block-media){
-    max-width: 72rem;
-    margin: 0 auto;
+    max-width: 48rem;
     width: 100%;
 }
 .case-block-media{
