@@ -391,9 +391,16 @@ main.about-content{
     padding: 5rem 4rem 8rem;
     width: 100%;
 }
+.project-hero-wrapper{
+    min-height: calc(100vh - 10rem);
+    display: flex;
+    flex-direction: column;
+}
 .project-hero{
+    flex: 1;
     display: flex;
     align-items: flex-start;
+    justify-content: center;
     gap: 5rem;
 }
 .project-media{
@@ -409,7 +416,32 @@ main.about-content{
 }
 .project-info{
     flex: 1;
-    min-width: 0;
+    min-width: 50rem;
+    max-width: 100rem;
+}
+/* Grid (not flex) so the image can stretch to exactly match the text
+   column's own content height — grid resolves the row height from the
+   text first, then hands that as a definite height to the image side,
+   which flexbox can't do for a percentage-height child. Used when a
+   project's hero copy is short enough that the standard fixed-height
+   image would tower over it. */
+.project-hero-fit{
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: 5rem;
+}
+.project-hero-fit .project-media{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.project-hero-fit .project-media img{
+    height: 100%;
+    width: auto;
+    max-width: 60rem;
+    object-fit: contain;
+    object-position: top;
 }
 .project-tag{
     display: block;
@@ -418,7 +450,7 @@ main.about-content{
     margin-bottom: 1.8rem;
 }
 .project-info h1{
-    font-size: 3.8rem;
+    font-size: 2.8rem;
     font-weight: 700;
     color: var(--navy);
     line-height: 1.15;
@@ -469,14 +501,13 @@ main.about-content{
 }
 
 .case-study{
-    max-width: 94rem;
+    max-width: 130rem;
     margin: 6rem auto 0;
     display: flex;
     flex-direction: column;
     gap: 4rem;
 }
 .case-block:not(.case-block-media){
-    max-width: 48rem;
     width: 100%;
 }
 .case-block-media{
@@ -485,7 +516,7 @@ main.about-content{
     gap: 4.5rem;
 }
 .case-media{
-    flex: 1;
+    flex: 2;
     min-width: 0;
 }
 .case-media img{
@@ -497,7 +528,6 @@ main.about-content{
 .case-text{
     flex: 1;
     min-width: 0;
-    max-width: 48rem;
 }
 .case-block h2{
     font-size: 1.3rem;
@@ -525,6 +555,43 @@ main.about-content{
 }
 .back-link:hover{
     color: var(--text-color);
+}
+
+/* ---------- prev/next project navigation ---------- */
+/* Icon-only so the button footprint is tiny and constant, it can float
+   at the viewport edge on every screen size without ever overlapping
+   the hero or case-study text. Full project name is still exposed via
+   aria-label/title for accessibility and on-hover context. */
+.project-nav{
+    display: contents;
+}
+.project-nav a{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4.4rem;
+    height: 4.4rem;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0.4rem 1.4rem rgba(19, 39, 63, 0.1);
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    transition: color 0.25s ease, transform 0.25s ease;
+    z-index: 5;
+}
+.project-nav a:hover{
+    color: var(--text-color);
+    transform: translateY(-50%) scale(1.08);
+}
+.project-nav-prev{
+    left: 2.2rem;
+}
+.project-nav-next{
+    right: 2.2rem;
 }
 
 @media (prefers-reduced-motion: reduce){
@@ -607,6 +674,15 @@ main.about-content{
     .project-media img{
         width: 100%;
         height: auto;
+        max-width: 100%;
+    }
+    .project-hero-fit{
+        display: flex;
+        grid-template-columns: none;
+    }
+    .project-hero-fit .project-media img{
+        height: auto;
+        width: 100%;
         max-width: 100%;
     }
     .project-info h1{
