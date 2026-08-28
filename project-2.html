@@ -19,6 +19,7 @@
         </header>
 
         <main class="project-page">
+            <div class="project-hero-wrapper">
             <div class="project-hero">
                 <div class="project-media">
                     <img src="Assets/projects/project-2.jpg" alt="PROSPER" loading="lazy" onerror="this.remove()">
@@ -43,6 +44,7 @@
                     </div>
                 </div>
             </div>
+            </div>
 
             <a href="#case-study" class="see-more">
                 <span>See more</span>
@@ -58,9 +60,15 @@
                     <h2>Approach</h2>
                     <p>I built PROSPER, short for PRe-Opening Success Prediction with Explainable Retrieval, a framework that predicts restaurant success using only information available before opening: location, cuisine, price, hours, service options, amenities, and zone context. It combines public Singapore Urban Redevelopment Authority zoning records with a corpus of 1,000 restaurants and 565,689 Google reviews, selected for having complete Google Business Profile data, to construct a Bayesian success label.</p>
                 </div>
+                <div class="case-block case-media">
+                    <img src="Assets/projects/project-2-solution.jpg" alt="PROSPER framework: inputs, labels, prediction, and explanation stages from Google About Page features and PROSPER attributes through LightGBM prediction to success score with SHAP explanation and LLM narration." loading="lazy" onerror="this.remove()">
+                </div>
                 <div class="case-block">
                     <h2>Solution</h2>
                     <p>PROSPER trains two predictors on this label. TabPFN is a tabular foundation model that achieves the lowest error of any model evaluated, while LightGBM is deployed for real-time inference. Both substantially outperform two LLM baselines that reason from restaurant attributes with and without retrieved evidence. Each restaurant is embedded with all-MiniLM-L6-v2, and every prediction is attributed with SHAP. Its top features guide a similarity search over these embeddings to surface the most comparable successful and unsuccessful restaurants, whose attributes and reviews are assembled into template-based natural-language narration.</p>
+                </div>
+                <div class="case-block case-media">
+                    <img src="Assets/projects/project-2-outcome.jpg" alt="PROSPER app flow: restaurant details form, success score with nearby comparable venues on a map, and a breakdown of what is helping and hurting the score." loading="lazy" onerror="this.remove()">
                 </div>
                 <div class="case-block">
                     <h2>Outcome</h2>

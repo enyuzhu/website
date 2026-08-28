@@ -19,6 +19,7 @@
         </header>
 
         <main class="project-page">
+            <div class="project-hero-wrapper">
             <div class="project-hero">
                 <div class="project-media">
                     <img src="Assets/projects/project-3.jpg" alt="Onsite Copilot" loading="lazy" onerror="this.remove()">
@@ -39,9 +40,10 @@
 
                     <div class="project-field">
                         <span class="field-label">Info</span>
-                        <p>OnSite Copilot is an AI platform designed to bring real-time, agentic assistance to construction sites, helping project teams identify safety, scheduling, and coordination issues before they result in costly rework. I organized 1,000+ construction documents and schedules into knowledge graphs, improving RAG retrieval by 30%, and fine-tuned LLMs and VLMs on construction datasets to identify project rework and coordination errors. I also integrated and designed an interactive frontend for AI assistants, enabling users to upload site images and receive construction feedback and advice through a chatbot interfaces.</p>
+                        <p>OnSite Copilot is an AI platform designed to bring real-time, agentic assistance to construction sites, helping project teams identify safety, scheduling, and coordination issues before they result in costly rework. I organized 1,000+ construction documents, pictures, and videos into hierarchical chunks and domain-specific knowledge graphs, linking related concepts and procedural relationships to improve contextual retrieval. I also developed query expansion methods that generate related questions, retrieve their corresponding child chunks, and recombine them with relevant context to improve RAG retrieval accuracy by 80%.</p>
                     </div>
                 </div>
+            </div>
             </div>
 
             <a href="#case-study" class="see-more">
@@ -52,19 +54,26 @@
             <section class="case-study" id="case-study">
                 <div class="case-block">
                     <h2>Challenge</h2>
-                    <p>Coming soon.</p>
+                    <p>As part of the AI engineering team at OnSite Copilot, I worked on improving the reliability of the platform's construction-domain reasoning. A key challenge was that generic RAG retrieval often surfaced relevant-looking passages without enough context, leading to incomplete or hallucinated answers when users asked specialized construction questions. I focused on building a retrieval system that could understand relationships across construction documents and return the right evidence for each query.</p>
                 </div>
                 <div class="case-block">
                     <h2>Approach</h2>
-                    <p>Coming soon.</p>
+                    <p>I first investigated how construction questions are naturally structured rather than immediately optimizing the existing retrieval pipeline. I focused on drywall installation as an initial domain and manually studied construction manuals, worksite images, and videos to identify recurring concepts, procedural dependencies, and common questions.
+                    <br><br>From this exploration, I found that relevant information was often distributed across multiple pieces of documentation: a question about one installation step could depend on material specifications, previous steps, or known failure modes. This led me to explore three complementary ideas: hierarchical chunking to preserve context at different levels, knowledge graphs to explicitly represent relationships between construction concepts, and query expansion to capture the different ways a user might ask about the same underlying concept.</p>
                 </div>
-                <div class="case-block">
-                    <h2>Solution</h2>
-                    <p>Coming soon.</p>
+                <div class="case-block case-block-media case-block-media-even">
+                    <div class="case-text">
+                        <h2>Solution</h2>
+                        <p>I implemented a specialized RAG pipeline across 1,000+ construction documents and schedules. Documents were organized into parent and child chunks, with smaller chunks representing specific pieces of information while parent chunks preserved their broader context. I constructed a domain-specific knowledge graph connecting materials, procedures, requirements, defects, and workflow stages through relationships such as required_for, input_to, precedes, and governed_by.
+                        <br><br>For each real user query, the system generates semantically related questions, maps those questions to relevant child chunks, retrieves the corresponding information, and then recombines the child chunks with their parent context before passing the evidence to the LLM. This allows the system to retrieve complementary information across the knowledge base instead of relying on a single nearest-neighbor match.</p>
+                    </div>
+                    <div class="case-media">
+                        <img src="Assets/projects/project-3-solution.png" alt="Onsite graph pipeline architecture" loading="lazy" onerror="this.closest('.case-media').remove()">
+                    </div>
                 </div>
                 <div class="case-block">
                     <h2>Outcome</h2>
-                    <p>Coming soon.</p>
+                    <p>I evaluated the implemented pipeline against a baseline RAG system using standard semantic chunking and retrieval. Across 500 construction queries, each response was evaluated for whether its information was supported by the underlying construction sources or contained unsupported/hallucinated information. The resulting retrieval approach achieved an 80% improvement in response accuracy over the baseline.</p>
                 </div>
                 <a class="back-link" href="index.html">&larr; Back to home</a>
 

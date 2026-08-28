@@ -183,8 +183,8 @@ button:focus-visible{
     border-radius: 1.2rem;
     background: var(--cocoa);
     cursor: pointer;
-    border-left: 0.3rem solid var(--card-edge);
-    border-bottom: 0.3rem solid var(--card-edge);
+    border-left: 0.1rem solid var(--card-edge);
+    border-bottom: 0.1rem solid var(--card-edge);
     transform: rotate(var(--rot, 0deg));
     transform-origin: 50% 100%;
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
@@ -386,13 +386,31 @@ main.about-content{
 /* ---------- project detail page ---------- */
 .project-page{
     flex: 1;
-    max-width: 100rem;
+    /* Wide enough that the hero image + .project-info's 50rem min-width
+       fit without overflowing — otherwise .project-hero's
+       justify-content: center centers that overflow evenly on both
+       sides, making the hero start/end past the case-study section's
+       edges below it instead of lining up with them. */
+    max-width: 110rem;
     margin: 0 auto;
     padding: 5rem 4rem 8rem;
     width: 100%;
 }
+/* project-info's min-width (50rem) plus a full-size hero image no
+   longer fits in the standard 100rem container without overflowing
+   off the right edge, so this variant just gives it more room. It's
+   still centered the same way as every other page (max-width +
+   margin: 0 auto, inherited above) — no left/right asymmetry. */
+.project-page-wide{
+    max-width: 130rem;
+}
+/* Fixed to the standard hero image's own height (62rem), not the
+   viewport — this is the height every project already naturally has
+   via the image, so it keeps "See more" at a consistent position
+   without pushing it almost off-screen the way a 100vh-based height
+   would. */
 .project-hero-wrapper{
-    min-height: calc(100vh - 10rem);
+    min-height: 62rem;
     display: flex;
     flex-direction: column;
 }
@@ -519,11 +537,25 @@ main.about-content{
     flex: 2;
     min-width: 0;
 }
-.case-media img{
+/* Image and text split the row exactly evenly instead of the default
+   2:1 ratio. */
+.case-block-media-even .case-media,
+.case-block-media-even .case-text{
+    flex: 1;
+}
+.case-media img,
+.case-media video{
     display: block;
     width: 100%;
     height: auto;
-    border-radius: 1.2rem;
+    border-radius: 0;
+}
+/* A standalone image that should keep its original proportions
+   instead of stretching edge-to-edge across the full case-study
+   width — the image is shown at half the column width, centered. */
+.case-media-half{
+    max-width: 50%;
+    margin: 0 auto;
 }
 .case-text{
     flex: 1;
