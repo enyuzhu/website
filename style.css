@@ -155,7 +155,7 @@ button:focus-visible{
 }
 .card-slot{
     flex: 0 0 auto;
-    width: 15.6rem;
+    width: 17.5rem;
     aspect-ratio: 3 / 4.4;
     opacity: 0;
     transform: translate(var(--dx, -10rem), var(--dy, -8rem));
