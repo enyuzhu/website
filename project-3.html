@@ -67,9 +67,10 @@
                         <p>I implemented a specialized RAG pipeline across 1,000+ construction documents and schedules. Documents were organized into parent and child chunks, with smaller chunks representing specific pieces of information while parent chunks preserved their broader context. I constructed a domain-specific knowledge graph connecting materials, procedures, requirements, defects, and workflow stages through relationships such as required_for, input_to, precedes, and governed_by.
                         <br><br>For each real user query, the system generates semantically related questions, maps those questions to relevant child chunks, retrieves the corresponding information, and then recombines the child chunks with their parent context before passing the evidence to the LLM. This allows the system to retrieve complementary information across the knowledge base instead of relying on a single nearest-neighbor match.</p>
                     </div>
-                    <div class="case-media">
+                    <figure class="case-media">
                         <img src="Assets/projects/project-3-solution.png" alt="Onsite graph pipeline architecture" loading="lazy" onerror="this.closest('.case-media').remove()">
-                    </div>
+                        <figcaption>Expanded questions retrieve specific child chunks, which are reunited with their broader parent context before reaching the LLM. Graph relationships connect the evidence to relevant materials, requirements, and workflow steps.</figcaption>
+                    </figure>
                 </div>
                 <div class="case-block">
                     <h2>Outcome</h2>
@@ -79,7 +80,7 @@
 
                 <nav class="project-nav">
                     <a class="project-nav-prev" href="project-2.html" aria-label="Previous project: PROSPER" title="Prev: PROSPER">&larr;</a>
-                    <a class="project-nav-next" href="project-4.html" aria-label="Next project: ATLAS" title="Next: ATLAS">&rarr;</a>
+                    <a class="project-nav-next" href="project-7.html" aria-label="Next project: NET-RT" title="Next: NET-RT">&rarr;</a>
                 </nav>
             </section>
         </main>
